@@ -1,7 +1,5 @@
 class Spaceship extends Floater  
 { 
-  
-
   public Spaceship() {
     corners = 3;
   xCorners = new int [corners];
@@ -17,8 +15,8 @@ class Spaceship extends Floater
   //myCenterY = Math.random()* 600;
    myCenterX = 200;
   myCenterY = 200;
-  myDirectionX = 2;
-  myDirectionY = 3;
+  myDirectionX = 0;
+  myDirectionY = 0;
   myPointDirection = -50;
   }
   public void setX(int x) {
@@ -51,35 +49,7 @@ class Spaceship extends Floater
   public double getPointDirection() {
     return myPointDirection;
   }
-  public void move ()
-{ 
-  myCenterX += myDirectionX;
-  myCenterY += myDirectionY;
-  if(myCenterX >width){
-    myCenterX = 0;
-  }
-  else if (myCenterX<0){
-    myCenterX = width;
-  }
-  if(myCenterY >height){
-    myCenterY = 0;
-  }
-  else if (myCenterY < 0){
-    myCenterY = height;
-  }
-}
-public void accelerate (double dAmount)
-{  
-     double dRadians =myPointDirection*(Math.PI/180);
-     
-    
-     myDirectionX += ((dAmount) * Math.cos(dRadians));
-     myDirectionY+= ((dAmount) * Math.sin(dRadians));    
-}
-void turn(int nDegreesOfRotation)
-{
-   myPointDirection+=nDegreesOfRotation;
-}
+ 
 
 
 
