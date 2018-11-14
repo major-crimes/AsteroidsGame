@@ -1,5 +1,6 @@
 Spaceship bigboi;//your variable declarations here
-Star[] nightSky = new Star [200];
+Star[] nightSky = new Star [1000];
+Asteroids [] badboys = new Asteroids[200];
 public void setup()
 {
   size(630, 630);
@@ -8,28 +9,42 @@ public void setup()
   { 
     nightSky [i] = new Star();
   } 
+  for (int i = 0; i < badboys.length; i++)
+  { 
+    badboys [i] = new Asteroids();
+  } 
 }
 public void draw() 
 {
    background(0);
-  //Spaceship bigboi = new Spaceship();
-  bigboi.show();
-  bigboi.move();
-  for (int i =0; i < nightSky.length; i++)
+   for (int i =0; i < nightSky.length; i++)
   {
     nightSky[i].show();
   }
+   for (int i =0; i < badboys.length; i++)
+  {
+    badboys[i].show();
+  }
+  bigboi.show();
+  bigboi.move();
+  
 }
 public void keyPressed() {
   if (key == 'h') {
-    bigboi.setX((int)(Math.random())*630);
-    bigboi.setY((int)(Math.random())*630);
+    bigboi.setX((int)(Math.random()*630));
+    bigboi.setY((int)(Math.random()*630));
+    bigboi.accelerate(0);
+    }
+  if (key == 's') {bigboi.accelerate(-.3);}
+  if (key == 'w') {bigboi.accelerate(.3);}
+  if (key == 'd') { bigboi.turn(20);}
+  if (key == 'a') { bigboi.turn(-20);}
+  if (key == ' ') {
+    bigboi.setX(height/2);
+    bigboi.setY(width/2);
+    bigboi.setDirectionX(0);
+    bigboi.setDirectionY(0);
+    bigboi.setPointDirection(-90);
+    
   }
-  if (key == 's') {
-    bigboi.accelerate(.3);
-  }
-  if (key == 'w') {
-    bigboi.accelerate(-.3);
-  }
-  //if (key == 'd') { bigboi.turn(25);}
 }
