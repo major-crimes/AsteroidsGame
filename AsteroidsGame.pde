@@ -1,6 +1,6 @@
 Spaceship bigboi;//your variable declarations here
-Star[] nightSky = new Star [1000];
-Asteroids [] badboys = new Asteroids[200];
+Star[] nightSky = new Star [1800];
+Asteroids [] badboys = new Asteroids[300];
 public void setup()
 {
   size(630, 630);
@@ -24,6 +24,7 @@ public void draw()
    for (int i =0; i < badboys.length; i++)
   {
     badboys[i].show();
+    badboys[i].move();
   }
   bigboi.show();
   bigboi.move();
@@ -31,8 +32,8 @@ public void draw()
 }
 public void keyPressed() {
   if (key == 'h') {
-    bigboi.setX((int)(Math.random()*630));
-    bigboi.setY((int)(Math.random()*630));
+    bigboi.setX((int)(Math.random()*670));
+    bigboi.setY((int)(Math.random()*670));
     bigboi.accelerate(0);
     }
   if (key == 's') {bigboi.accelerate(-.3);}
