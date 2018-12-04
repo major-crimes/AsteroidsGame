@@ -1,6 +1,6 @@
 Spaceship bigboi;//your variable declarations here
 Star[] nightSky = new Star [1800];
-Asteroids [] badboys = new Asteroids[300];
+ArrayList <Asteroids> badboys = new ArrayList <Asteroids>();
 public void setup()
 {
   size(630, 630);
@@ -9,9 +9,9 @@ public void setup()
   { 
     nightSky [i] = new Star();
   } 
-  for (int i = 0; i < badboys.length; i++)
+  for (int i = 0; i < 200; i++)
   { 
-    badboys [i] = new Asteroids();
+    badboys.add (new Asteroids());
   } 
 }
 public void draw() 
@@ -21,10 +21,11 @@ public void draw()
   {
     nightSky[i].show();
   }
-   for (int i =0; i < badboys.length; i++)
+   for (int i =0; i < badboys.size(); i++)
   {
-    badboys[i].show();
-    badboys[i].move();
+    badboys.get(i).show();
+    badboys.get(i).move();
+    //need code to finish measure distace from asteroid and ship and if they are close take em out
   }
   bigboi.show();
   bigboi.move();
