@@ -20,7 +20,7 @@ class Asteroids
     myDirectionY = (int)(Math.random() * 4) -2;
   }
   public void show() {
-   frameRate(20);
+    frameRate(20);
 
     if (myDirectionX != 0 && myDirectionY != 0) {
       if ( 204 < r && 204 < b && 0 < g) {
@@ -33,8 +33,18 @@ class Asteroids
         ellipse(myCenterX, myCenterY, size, size);
       }
     }
-
-    
+  }
+  public void setX(int x) {
+    myCenterX = x;
+  }
+  public int getX() {
+    return (int)myCenterX;
+  }
+  public void setY(int y) {
+    myCenterY = y;
+  }
+  public int getY() {
+    return (int)myCenterY;
   }
 
   public void move () 

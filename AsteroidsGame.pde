@@ -25,6 +25,11 @@ public void draw()
   {
     badboys.get(i).show();
     badboys.get(i).move();
+
+    float d = dist(bigboi.getX(),bigboi.getY(),badboys.get(i).getX(),badboys.get(i).getY());
+    if (d < 40)
+      badboys.remove(i);
+    
     //need code to finish measure distace from asteroid and ship and if they are close take em out
   }
   bigboi.show();
