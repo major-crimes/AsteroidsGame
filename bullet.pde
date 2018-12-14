@@ -1,22 +1,18 @@
-class Spaceship extends Floater  
-{ 
-  public Spaceship() {
-    corners = 3;
-    xCorners = new int [corners];
-    yCorners = new int[corners];
-    xCorners[0] = -8;
-    yCorners[0] = -8;
-    xCorners[1] = 16;
-    yCorners[1] = 0;
-    xCorners[2] = -8;
-    yCorners[2] = 8;
-    myCenterX = 630/2;
-    myCenterY = 630/2;
-    myDirectionX = 0;
-    myDirectionY = 0;
-    myPointDirection = -90;
+class bullet extends Floater {
+
+  bullet(Spaceship bigboi) {
+    myCenterX = bigboi.getX();
+    myCenterY =  bigboi.getY();
+    myPointDirection = bigboi.getPointDirection();
+    double dRadians = myPointDirection*(Math.PI/180);
+    myDirectionX = 5 * Math.cos(dRadians) + bigboi.getDirectionX();
+    myDirectionY = 5 * Math.sin(dRadians) +  bigboi.getDirectionY();
   }
-  public void setX(int x) {
+  public void show(){
+    ellipse((int)myCenterX,(int) myCenterY,10,10);
+  }
+
+    public void setX(int x) {
     myCenterX = x;
   }
   public int getX() {

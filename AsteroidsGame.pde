@@ -1,10 +1,10 @@
-Spaceship bigboi;//your variable declarations here
+Spaceship bigboi = new Spaceship();
+ArrayList <bullet> theboi = new ArrayList <bullet>();
 Star[] nightSky = new Star [1800];
 ArrayList <Asteroids> badboys = new ArrayList <Asteroids>();
 public void setup()
 {
   size(630, 630);
-  bigboi = new Spaceship();
   for (int i = 0; i < nightSky.length; i++)
   { 
     nightSky [i] = new Star();
@@ -13,6 +13,8 @@ public void setup()
   { 
     badboys.add (new Asteroids());
   } 
+
+  
 }
 public void draw() 
 {
@@ -27,13 +29,24 @@ public void draw()
     badboys.get(i).move();
 
     float d = dist(bigboi.getX(),bigboi.getY(),badboys.get(i).getX(),badboys.get(i).getY());
-    if (d < 40)
+    if (d < 20)
       badboys.remove(i);
     
-    //need code to finish measure distace from asteroid and ship and if they are close take em out
+  
   }
   bigboi.show();
   bigboi.move();
+  for (int i=0;i < theboi.size(); i++){
+   theboi.get(i).show();
+   theboi.get(i).move();
+   if(theboi.get(i).getX() == 630 ){
+     theboi.remove(i);
+   }
+   if (theboi.get(i).getY() >= 630){
+     theboi.remove(i);
+     //set equal to 0
+   }
+  }
   
 }
 public void keyPressed() {
@@ -54,4 +67,10 @@ public void keyPressed() {
     bigboi.setPointDirection(-90);
     
   }
+  if (key == 'b'){
+    
+   theboi.add (new bullet(bigboi));
+   
+  }
+  
 }
