@@ -27,30 +27,34 @@ public void draw()
   {
     badboys.get(i).show();
     badboys.get(i).move();
-
+//when asteroid comes in contact with ship it destroys it
     float d = dist(bigboi.getX(),bigboi.getY(),badboys.get(i).getX(),badboys.get(i).getY());
     if (d < 20)
-      badboys.remove(i);
-    
-  
-  }
+      badboys.remove(i);}
+      
   bigboi.show();
   bigboi.move();
   for (int i=0;i < theboi.size(); i++){
    theboi.get(i).show();
    theboi.get(i).move();
-   if(theboi.get(i).getX() == 630 ){
+   float b = dist(theboi.get(i).getX(), theboi.get(i).getY(),badboys.get(i).getY(),badboys.get(i).getX());
+    if(b<40)
+    badboys.remove(i);
+    //makes sure the bullets dont come back on screen
+   if(theboi.get(i).getY() == 0 || theboi.get(i).getY() == 630){
      theboi.remove(i);
+     
    }
-   if (theboi.get(i).getY() >= 630){
+   
+   if(theboi.get(i).getX() == 0 || theboi.get(i).getX() == 630){
      theboi.remove(i);
-     //set equal to 0
+     
    }
   }
   
 }
 public void keyPressed() {
-  if (key == 'h') {
+  if (key == 'h') {//yperspace
     bigboi.setX((int)(Math.random()*670));
     bigboi.setY((int)(Math.random()*670));
     bigboi.accelerate(0);
@@ -59,7 +63,7 @@ public void keyPressed() {
   if (key == 'w') {bigboi.accelerate(.3);}
   if (key == 'd') { bigboi.turn(20);}
   if (key == 'a') { bigboi.turn(-20);}
-  if (key == ' ') {
+  if (key == ' ') {//resets ship to middle
     bigboi.setX(height/2);
     bigboi.setY(width/2);
     bigboi.setDirectionX(0);
@@ -67,7 +71,7 @@ public void keyPressed() {
     bigboi.setPointDirection(-90);
     
   }
-  if (key == 'b'){
+  if (key == 'b'){//bullet key pressed
     
    theboi.add (new bullet(bigboi));
    

@@ -11,6 +11,8 @@ class bullet extends Floater {
   public void show(){
     ellipse((int)myCenterX,(int) myCenterY,10,10);
   }
+  
+  
 
     public void setX(int x) {
     myCenterX = x;
