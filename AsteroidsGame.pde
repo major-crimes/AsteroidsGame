@@ -46,7 +46,7 @@ public void draw()
      
    }
    
-   if(theboi.get(i).getX() == 0 || theboi.get(i).getX() == 630){
+   else if(theboi.get(i).getX() == 0 || theboi.get(i).getX() == 630){
      theboi.remove(i);
      
    }
